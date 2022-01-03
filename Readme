@@ -1,0 +1,36 @@
+## add __init__.py to trat the directory as a package:
+- touch __init__.py
+
+
+## Operating with venv( to encapsulate python and packages within an isolated environment )
+Create virtual environment for project: 
+- python3 -m venv venv
+
+Activate venv: 
+- . venv/bin/activate
+
+Install requirements:
+- pip install -r requirements.txt
+
+Add env variables:
+- export $( cat .env )
+
+Start Flask:
+- flask run
+
+
+# FOREACH NEW FOLDER
+# Make sure __init__ file is present within the dir
+
+
+# Folder Flow:
+main.py route ( request action )-> 
+resources/file ( match requested action with controller )-> 
+controllers ( business logic )-> 
+schema ( validate and transform input )->
+data ( direct requests to db )
+
+
+# BINANCE WRAPPER:
+https://python-binance.readthedocs.io/en/latest/
+https://github.com/sammchardy/python-binance/blob/master/docs/index.rst
