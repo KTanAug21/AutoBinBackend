@@ -1,3 +1,6 @@
+## NAG-AKDA/AUTHOR ##
+Kathryn Anne S. Tan
+
 ## add __init__.py to trat the directory as a package:
 - touch __init__.py
 
