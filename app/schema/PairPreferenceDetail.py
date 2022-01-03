@@ -34,11 +34,17 @@ def parse_put_pair_preference_args():
     return parser
 #End
 
+
+from app.data.PairPreferenceDetail import get_item_by_symbol;
 def abort_put_pair_preference( args ):
     """
     Abort Adding if name already exists
     """
-    if args['pair'] == 'ABC':
+
+    # Get pair from db record
+    db_record = get_item_by_symbol( args['pair'] )
+    # Throw error if pair retrieved
+    if db_record is not None:
         abort( 422, message={'pair':'Pair already exist...'} )
 
 #End

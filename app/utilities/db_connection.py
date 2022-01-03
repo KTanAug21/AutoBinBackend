@@ -2,17 +2,23 @@ from bson.objectid import ObjectId
 from flask_restful import abort
 from pymongo import MongoClient
 from app.utilities.date_time import current_ms_time
+import os
+import traceback
 
 def binance_wrapper_db():
     """
     Connect to binance wrapper db
     """
     try:
-        mongo  = env('MONGO_DB')
+        url   = os.getenv('MONGO_DB')
+        mongo = MongoClient(url, serverSelectionTimeoutMS=5000)
         mongo.server_info() 
         return mongo.binance_wrapper
     except:
+        print('checking')
+        print( traceback.format_exc() )
         print('Unable to connect to db')
+       
         return None
     #End
 

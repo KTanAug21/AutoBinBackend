@@ -27,6 +27,17 @@ def get_item( id_filter ):
     return pair_preference_table.find_one( id_filter )
 #End
 
+def get_item_by_symbol( pair ):
+    """
+    Retrieve item from document through the symbol passed
+
+    Args:
+        pair - identifier
+    """
+
+    return pair_preference_table.find_one( {'pair':pair} )
+#End
+
 def insert_item( args ):
     """
     Insert directly to the db
