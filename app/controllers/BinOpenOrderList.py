@@ -3,10 +3,11 @@ from app.controllers.PairPreferenceList import get_pair_preference_list
 from app.data.BinOpenOrderList import get_db_list
 from app.data.BinOpenOrderDetail import upsert_item
 from app.data.PairPreferenceList import update_sync_db_list as update_pair_sync_list
-from app.utilities.date_time import current_ms_time, time_is_older_than
+from app.data.utilities.date_time import current_ms_time, time_is_older_than
+import datetime
 
 """ BinOpenrOrderList """
-import datetime
+
 def get_list():
     """
     resource: BinOpenOrderList.get
@@ -36,7 +37,9 @@ def get_list():
             break
     #End 
 
-    
+    # Existing records in db for reference
+  
+    db_list = get_db_list()
     if sync:
     
         # Get from live data
@@ -45,17 +48,32 @@ def get_list():
 
         # Add new records to db
         for order in live_list:
-            print( 'Upserting order to db {}'.format(order) )
-            order['synced_at'] = current_ms_time()
-            upsert_item( {'orderId':order['orderId']}, order )
+            
+            if order['status'] == 'NEW':
+            
+                print( 'Upserting order to db {}'.format(order) )
+                upsert_item( {'orderId':order['orderId']}, order )
+                order['synced_at'] = current_ms_time()
+            
+            """elif order['status'] == 'FILLED':
+
+                # Get record details
+                record = get_record_details_from_get_db_list( order['orderId'] )
+
+                # Check if reverse order available
+                if check_if_record_has_reverse_order( record ): 
+                    
+                    # Trigger reverse order
+                    make_reverse_order( record )
+            """
         # Get records from db
 
-        update_pair_sync_list()
+        #update_pair_sync_list()
         db_list = get_db_list()
 
     else:
         print( 'Not syncing' )
-        db_list = get_db_list()
+        
     
     return db_list
     

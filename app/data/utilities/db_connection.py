@@ -1,7 +1,7 @@
 from bson.objectid import ObjectId
 from flask_restful import abort
 from pymongo import MongoClient
-from app.utilities.date_time import current_ms_time
+from app.data.utilities.date_time import current_ms_time
 import os
 import traceback
 
@@ -21,7 +21,6 @@ def binance_wrapper_db():
        
         return None
     #End
-
 #End
 
 

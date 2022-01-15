@@ -1,6 +1,6 @@
 from flask_restful import Resource
 
-from app.utilities.response import respond
+from app.data.utilities.response import respond
 from app.controllers.BinOpenOrderDetail import delete_detail, get_detail, patch_detail
 
 """

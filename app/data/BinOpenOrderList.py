@@ -1,5 +1,5 @@
-from app.utilities.response import json_serialize
-from app.utilities.db_connection import binance_wrapper_db
+from app.data.utilities.response import json_serialize
+from app.data.utilities.db_connection import binance_wrapper_db
 
 """ GLOBAL """
 db = binance_wrapper_db()

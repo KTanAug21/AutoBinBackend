@@ -8,7 +8,7 @@ def get_pair_preference_list():
     return get_db_list()
 #End 
 
-from app.utilities.formatter import ext_attr_from_dict_as_list
+from app.data.utilities.formatter import ext_attr_from_dict_as_list
 def sup_pair_name_list():
     """
     Supplimentary function to get_pair_preference_list

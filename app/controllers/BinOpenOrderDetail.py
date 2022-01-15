@@ -11,7 +11,7 @@ def delete_detail():
     return { 'message':'Completed Delete' }
 #End
 
-from app.utilities.response import json_serialize
+from app.data.utilities.response import json_serialize
 from app.data.BinOpenOrderDetail import get_item
 from app.schema.BinOpenOrderDetail import parse_get_detail_args
 from flask import request

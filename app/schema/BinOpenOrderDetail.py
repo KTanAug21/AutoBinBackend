@@ -1,4 +1,4 @@
-from app.utilities.date_time import current_ms_time
+from app.data.utilities.date_time import current_ms_time
 from flask_restful import abort, reqparse
 
 """ DELETE """

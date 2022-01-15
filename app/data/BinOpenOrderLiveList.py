@@ -1,4 +1,4 @@
-from app.utilities.file import json_read_file
+from app.data.utilities.file import json_read_file
 
 def get_open_orders( client, symbol, from_json=False ):
     """
@@ -17,6 +17,8 @@ def get_open_orders( client, symbol, from_json=False ):
         print( 'Reading from json file' )
         return json_read_file( 'data/json/bin_open_order_live_list.json' )
     else:
-        print( 'Reading from client conn' )
-        return  client.get_open_orders(symbol=symbol)
+        print( 'Getting live data from binance' )
+        list =  client.get_all_orders(symbol=symbol, limit=10)
+        print( list )
+        return list
 #End

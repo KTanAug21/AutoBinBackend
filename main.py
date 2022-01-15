@@ -8,6 +8,11 @@ from app.resources.BinOpenOrderList import BinOpenOrderList
 
 from app.resources.PairPreferenceDetail import PairPreferenceDetail
 from app.resources.PairPreferenceList import PairPreferenceList 
+
+from app.resources.TestResource import TestResource
+
+from app.resources.UserDetail import UserDetail
+
 from flask_cors import CORS, cross_origin
 
 
@@ -20,13 +25,19 @@ api  = Api( app )
 
 
 """ Routes / Resources """
-api.add_resource( PairPreferenceDetail, "/pair-preference" ) 
-api.add_resource( PairPreferenceList, "/pair-preference/list" ) 
+api.add_resource( TestResource, "/test-resource" ) 
+
 api.add_resource( BinOpenOrderDetail, "/bin-open-order/detail" ) 
 api.add_resource( BinOpenOrderList, "/bin-open-order/list" ) 
 api.add_resource( BinOpenOrderLiveList, "/bin-open-order-live/list" ) 
 
+api.add_resource( PairPreferenceDetail, "/pair-preference" ) 
+api.add_resource( PairPreferenceList, "/pair-preference/list" ) 
+
+api.add_resource( UserDetail, "/user/detail" ) 
+
+
 
 """ Main """ 
 if __name__ == "__main__":
-    app.run( debug=True )
+    app.run( debug=True ) 

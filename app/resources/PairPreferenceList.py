@@ -1,6 +1,6 @@
 from flask_restful import Resource
 
-from app.utilities.response import respond
+from app.data.utilities.response import respond
 from app.controllers.PairPreferenceList import get_pair_preference_list
 
 

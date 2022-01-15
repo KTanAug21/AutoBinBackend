@@ -1,5 +1,5 @@
-from app.utilities.db_connection import  get_identifier_filter
-from app.utilities.response import json_serialize
+from app.data.utilities.db_connection import  get_identifier_filter
+from app.data.utilities.response import json_serialize
 
 
 

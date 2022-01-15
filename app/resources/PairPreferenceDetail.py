@@ -1,6 +1,6 @@
 from flask_restful import Resource
 
-from app.utilities.response import respond
+from app.data.utilities.response import respond
 from app.controllers.PairPreferenceDetail import delete_detail, get_detail, patch_pair_preference, put_pair_preference
 
 class PairPreferenceDetail( Resource ):

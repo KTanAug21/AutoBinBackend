@@ -1,5 +1,5 @@
 import json
-from app.utilities.formatter import format_file_path
+from app.data.utilities.formatter import format_file_path
 
 def read_file( file_path ):
     """
