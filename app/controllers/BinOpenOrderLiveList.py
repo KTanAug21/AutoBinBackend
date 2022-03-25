@@ -14,11 +14,10 @@ def get_list():
     
     # Get Pair Names as a list
     pair_names_list = sup_pair_name_list()
-    return pair_names_list
     print( 'Processing each item in the list {}'.format( pair_names_list ) ) 
     for symbol in pair_names_list:
         print( 'Getting pair {}'.format(symbol) )
-        orders = get_open_orders( client, symbol, False )
+        orders = get_open_orders( client, symbol, True )
     #End
     
     print( 'Returning result' )

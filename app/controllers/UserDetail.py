@@ -56,7 +56,7 @@ def get_user_detail():
                 token = generate_user_jwt_token( user["password"] ) 
                 
                 # Update user with new token
-                update_item( user['id'], ['token':] )
+                update_item( user['id'], ['token'] )
             #End
 
             # Respond
