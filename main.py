@@ -1,5 +1,5 @@
 from dotenv import load_dotenv
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_restful import Api
 
 from app.resources.BinOpenOrderLiveList import BinOpenOrderLiveList
@@ -25,19 +25,15 @@ api  = Api( app )
 
 
 """ Routes / Resources """
-api.add_resource( TestResource, "/test-resource" ) 
-
 api.add_resource( BinOpenOrderDetail, "/bin-open-order/detail" ) 
 api.add_resource( BinOpenOrderList, "/bin-open-order/list" ) 
 api.add_resource( BinOpenOrderLiveList, "/bin-open-order-live/list" ) 
-
-api.add_resource( PairPreferenceDetail, "/pair-preference" ) 
+api.add_resource( PairPreferenceDetail, "/pair-preference/detail" ) 
 api.add_resource( PairPreferenceList, "/pair-preference/list" ) 
-
 api.add_resource( UserDetail, "/user/detail" ) 
-
-
+api.add_resource( TestResource, "/test-resource" ) 
 
 """ Main """ 
 if __name__ == "__main__":
     app.run( debug=True ) 
+    
